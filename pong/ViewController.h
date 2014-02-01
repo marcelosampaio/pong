@@ -10,4 +10,19 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *ball;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
+@property (strong,nonatomic) NSTimer *timer;
+
+@property int X;
+@property int Y;
+
+
+// 
+-(void)ballMovement;
+
+
+
+
 @end
