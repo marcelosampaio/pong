@@ -23,11 +23,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    NSLog(@"largura=%f",self.view.frame.size.width);
-    NSLog(@"altura=%f",self.view.frame.size.height);
-    NSLog(@"player=%f",self.player.frame.size.width);
-    NSLog(@"player OriginX=%f",self.player.frame.origin.x);
+
 }
 
 
