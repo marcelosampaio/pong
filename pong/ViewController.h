@@ -29,6 +29,8 @@
 
 -(void)computerMovement;
 
+-(void)collision;
+
 
 
 

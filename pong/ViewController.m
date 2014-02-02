@@ -25,6 +25,23 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+
+-(void)collision
+{
+    
+    if (CGRectIntersectsRect(self.ball.frame, self.player.frame)) {
+        Y=arc4random() %5;
+        Y=0-Y;
+    }
+    
+    if (CGRectIntersectsRect(self.ball.frame, self.computer.frame)) {
+        Y=arc4random() %5;
+    }
+    
+    
+}
+
+
 -(void)computerMovement
 {
     if (self.computer.center.x>self.ball.center.x) {
@@ -90,6 +107,7 @@
 {
     
     [self computerMovement];
+    [self collision];
     
     
     
