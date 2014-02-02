@@ -23,6 +23,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSLog(@"largura=%f",self.view.frame.size.width);
+    NSLog(@"altura=%f",self.view.frame.size.height);
+    NSLog(@"player=%f",self.player.frame.size.width);
+    NSLog(@"player OriginX=%f",self.player.frame.origin.x);
 }
 
 
@@ -57,13 +62,13 @@
 {
     UITouch *drag=[[event allTouches]anyObject];
     self.player.center=[drag locationInView:self.view];
-  
-    if (self.player.center.y>536) {
-        self.player.center=CGPointMake(self.player.center.x, 536);
-    }
-    if (self.player.center.y<536) {
-        self.player.center=CGPointMake(self.player.center.x, 536);
-    }
+//  
+//    if (self.player.center.y>536) {
+//        self.player.center=CGPointMake(self.player.center.x, 536);
+//    }
+//    if (self.player.center.y<536) {
+//        self.player.center=CGPointMake(self.player.center.x, 536);
+//    }
     
     if (self.player.center.x<37) {
         self.player.center=CGPointMake(37, self.player.center.y);
@@ -120,6 +125,18 @@
     if (self.ball.center.x>305) {
         X=0-X;
     }
+
+    
+    
+    
+    
+    if (self.ball.center.y<15) {
+        X=0-X;
+    }
+    if (self.ball.center.y>self.view.frame.size.height) {
+        Y=0-Y;
+    }
+    
     
     
     
