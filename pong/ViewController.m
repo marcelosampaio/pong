@@ -113,7 +113,7 @@
     
     
     
-    self.ball.center=CGPointMake(self.ball.center.x + X, self.ball.center.y + Y);
+    self.ball.center=CGPointMake(self.ball.center.x + self.X, self.ball.center.y + self.Y);
     
     if (self.ball.center.x<15) {
         self.X=0-self.X;
