@@ -17,8 +17,7 @@
 
 @synthesize ball,startButton,timer;
 @synthesize X,Y;
-
-
+@synthesize computer,player;
 
 - (void)viewDidLoad
 {
@@ -26,9 +25,62 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)computerMovement
+{
+    if (self.computer.center.x>self.ball.center.x) {
+        self.computer.center=CGPointMake(self.computer.center.x-2, self.computer.center.y);
+    }
+    if (self.computer.center.x<self.ball.center.x) {
+        self.computer.center=CGPointMake(self.computer.center.x+2, self.computer.center.y);
+    }
+
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *drag=[[event allTouches]anyObject];
+    self.player.center=[drag locationInView:self.view];
+  
+    if (self.player.center.y>536) {
+        self.player.center=CGPointMake(self.player.center.x, 536);
+    }
+    if (self.player.center.y<536) {
+        self.player.center=CGPointMake(self.player.center.x, 536);
+    }
+    
+    if (self.player.center.x<37) {
+        self.player.center=CGPointMake(37, self.player.center.y);
+    }
+    if (self.player.center.x>283) {
+        self.player.center=CGPointMake(283, self.player.center.y);
+    }
+    
+    
+}
+
+
 
 - (IBAction)startButton:(UIButton *)sender
 {
+    
+    // hide button
+    self.startButton.hidden=YES;
+
+    
+    Y = arc4random() %11;  // (eleven possibilities including 0 and 10)
+    Y = Y-5;
+    
+    X = arc4random() %11;
+    X = X-5;
+    
+    if (Y==0) {
+        Y=1;
+    }
+
+    if (X==0) {
+        X=1;
+    }
+    
     self.timer=[NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(ballMovement) userInfo:nil repeats:YES];
     
 }
@@ -36,7 +88,20 @@
 
 -(void)ballMovement
 {
+    
+    [self computerMovement];
+    
+    
+    
+    
     self.ball.center=CGPointMake(self.ball.center.x + X, self.ball.center.y + Y);
+    
+    if (self.ball.center.x<15) {
+        X=0-X;
+    }
+    if (self.ball.center.x>305) {
+        X=0-X;
+    }
     
     
     

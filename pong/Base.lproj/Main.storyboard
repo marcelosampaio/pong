@@ -30,11 +30,21 @@
                                     <action selector="startButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Psv-Sw-Jaf"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="players.png" translatesAutoresizingMaskIntoConstraints="NO" id="A9B-3N-Zk7">
+                                <rect key="frame" x="123" y="525" width="74" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="players.png" translatesAutoresizingMaskIntoConstraints="NO" id="uMt-Fs-8fh">
+                                <rect key="frame" x="123" y="20" width="74" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="ball" destination="M2R-vL-meh" id="glh-qv-gmf"/>
+                        <outlet property="computer" destination="uMt-Fs-8fh" id="G9t-K9-m8U"/>
+                        <outlet property="player" destination="A9B-3N-Zk7" id="rUq-bn-Z4N"/>
                         <outlet property="startButton" destination="XP9-Pg-Qex" id="rSs-8G-jXx"/>
                     </connections>
                 </viewController>
@@ -44,6 +54,7 @@
     </scenes>
     <resources>
         <image name="ball.png" width="128" height="128"/>
+        <image name="players.png" width="74" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -10,6 +10,11 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *computer;
+@property (weak, nonatomic) IBOutlet UIImageView *player;
+
+
+
 @property (weak, nonatomic) IBOutlet UIImageView *ball;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
@@ -21,6 +26,9 @@
 
 // 
 -(void)ballMovement;
+
+-(void)computerMovement;
+
 
 
 
