@@ -31,12 +31,12 @@
 {
     
     if (CGRectIntersectsRect(self.ball.frame, self.player.frame)) {
-        Y=arc4random() %5;
-        Y=0-Y;
+        self.Y=arc4random() %5;
+        self.Y=0-self.Y;
     }
     
     if (CGRectIntersectsRect(self.ball.frame, self.computer.frame)) {
-        Y=arc4random() %5;
+        self.Y=arc4random() %5;
     }
     
     
@@ -85,18 +85,18 @@
     self.startButton.hidden=YES;
 
     
-    Y = arc4random() %11;  // (eleven possibilities including 0 and 10)
-    Y = Y-5;
+    self.Y = arc4random() %11;  // (eleven possibilities including 0 and 10)
+    self.Y = self.Y-5;
     
-    X = arc4random() %11;
-    X = X-5;
+    self.X = arc4random() %11;
+    self.X = self.X-5;
     
-    if (Y==0) {
-        Y=1;
+    if (self.Y==0) {
+        self.Y=1;
     }
 
-    if (X==0) {
-        X=1;
+    if (self.X==0) {
+        self.X=1;
     }
     
     self.timer=[NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(ballMovement) userInfo:nil repeats:YES];
@@ -116,10 +116,10 @@
     self.ball.center=CGPointMake(self.ball.center.x + X, self.ball.center.y + Y);
     
     if (self.ball.center.x<15) {
-        X=0-X;
+        self.X=0-self.X;
     }
     if (self.ball.center.x>305) {
-        X=0-X;
+        self.X=0-self.X;
     }
 
     
@@ -127,10 +127,10 @@
     
     
     if (self.ball.center.y<15) {
-        X=0-X;
+        self.X=0-self.X;
     }
     if (self.ball.center.y>self.view.frame.size.height) {
-        Y=0-Y;
+        self.Y=0-self.Y;
     }
     
     
