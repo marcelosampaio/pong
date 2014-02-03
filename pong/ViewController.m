@@ -54,11 +54,41 @@
 
 }
 
+-(void)ballMovement
+{
+    // Computer movement behavior
+    [self computerMovement];
+    
+    // check collisions
+    [self collision];
+    
+    // move the ball
+    self.ball.center=CGPointMake(self.ball.center.x + self.X, self.ball.center.y + self.Y);
+    
+    // Width treatment
+    if (self.ball.center.x<15) {
+        self.X=0-self.X;
+    }
+    if (self.ball.center.x>305) {
+        self.X=0-self.X;
+    }
+    
+    // Height treatment
+    if (self.ball.center.y<15) {
+        self.X=0-self.X;
+    }
+    if (self.ball.center.y>self.view.frame.size.height) {
+        self.Y=0-self.Y;
+    }
+    
+}
+
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *drag=[[event allTouches]anyObject];
     self.player.center=[drag locationInView:self.view];
-//  
+//
+//    // Code below make fixed height for the player - not dragable
 //    if (self.player.center.y>536) {
 //        self.player.center=CGPointMake(self.player.center.x, 536);
 //    }
@@ -73,10 +103,7 @@
         self.player.center=CGPointMake(283, self.player.center.y);
     }
     
-    
 }
-
-
 
 - (IBAction)startButton:(UIButton *)sender
 {
@@ -103,46 +130,10 @@
     
 }
 
-
--(void)ballMovement
-{
-    
-    [self computerMovement];
-    [self collision];
-    
-    
-    
-    
-    self.ball.center=CGPointMake(self.ball.center.x + self.X, self.ball.center.y + self.Y);
-    
-    if (self.ball.center.x<15) {
-        self.X=0-self.X;
-    }
-    if (self.ball.center.x>305) {
-        self.X=0-self.X;
-    }
-
-    
-    
-    
-    
-    if (self.ball.center.y<15) {
-        self.X=0-self.X;
-    }
-    if (self.ball.center.y>self.view.frame.size.height) {
-        self.Y=0-self.Y;
-    }
-    
-    
-    
-    
+// Esconder atatus bar
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
-
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning
 {
